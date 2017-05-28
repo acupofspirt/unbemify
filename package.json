@@ -1,0 +1,57 @@
+{
+  "name": "unbemify",
+  "version": "0.0.1",
+  "description": "Fast CSS class names minifier",
+  "preferGlobal": true,
+  "bin": {
+    "unbemify": "index.js"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=TEST jest",
+    "test:cover": "cross-env NODE_ENV=TEST jest --coverage",
+    "debug": "cross-env NODE_ENV=DEBUG unbemify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "repo will be here"
+  },
+  "keywords": [
+    "bem",
+    "minificator",
+    "css",
+    "class",
+    "reduce",
+    "length"
+  ],
+  "author": {
+    "name": "Maksim Nazarjev",
+    "email": "acupofspirt@gmail.com",
+    "url": "https://github.com/acupofspirt"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "css-tree": "^1.0.0-alpha19"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.0",
+    "jest": "^20.0.3"
+  },
+  "maintainers": [
+    {
+      "name": "Maksim Nazarjev",
+      "email": "acupofspirt@gmail.com"
+    }
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
+    "globals": {
+      "Promise": true,
+      "Set": true
+    }
+  }
+}

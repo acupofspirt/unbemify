@@ -1,15 +1,37 @@
-const files = require('../lib/utils/filesReader');
+const filesReader = require('../lib/utils/filesReader');
 
-describe('Files loader', () => {
+describe('Files reader', () => {
   it('should correctly read file content', () => {
-    const parsedFiles = Promise.all(files(['tests/resources/file1.txt', 'tests/resources/file2.txt']));
+    const options = {
+      style: {
+        path: 'tests/resources/file1.txt',
+        content: ''
+      },
+      files: [{
+        path: 'tests/resources/file2.txt',
+        content: ''
+      }]
+    };
 
-    return expect(parsedFiles).resolves.toEqual(['Some content', 'Some another content']);
+    return filesReader(options)
+      .then(() => {
+        expect(options.style.content).toBe('Some content');
+        expect(options.files[0].content).toBe('Some another content');
+      });
   });
 
   it('should reject on nonexistent file path', () => {
-    const parsedFiles = Promise.all(files(['tests/resources/file1.txt', 'tests/resources/file3.txt']));
+    const options = {
+      style: {
+        path: 'tests/resources/file1.txt',
+        content: ''
+      },
+      files: [{
+        path: 'tests/resources/file3.txt',
+        content: ''
+      }]
+    };
 
-    return expect(parsedFiles).rejects.toMatch('No such file: tests/resources/file3.txt');
+    return expect(filesReader(options)).rejects.toMatch('No such file: tests/resources/file3.txt');
   });
 });

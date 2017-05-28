@@ -13,15 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "repo will be here"
+    "url": "git+https://github.com/acupofspirt/unbemify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acupofspirt/unbemify/issues"
   },
   "keywords": [
     "bem",
-    "minificator",
+    "fast",
     "css",
-    "class",
-    "reduce",
-    "length"
+    "minificator"
   ],
   "author": {
     "name": "Maksim Nazarjev",
@@ -35,7 +36,7 @@
   },
   "devDependencies": {
     "cross-env": "^5.0.0",
-    "jest": "^20.0.3"
+    "jest": "^20.0.4"
   },
   "maintainers": [
     {

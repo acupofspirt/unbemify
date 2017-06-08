@@ -1,4 +1,5 @@
 const replacer = require('../lib/replacer'),
+      freqAnalyzer = require('../lib/replacer/freqAnalyzer'),
       styleParser = require('../lib/parsers/styleParser');
 
 describe('CSS class replacer', () => {
@@ -15,9 +16,13 @@ describe('CSS class replacer', () => {
               content: 'get(".class-1"); get("class-2"); g(class-2); <div class="clazz-12 clazz-13"></div>'
             }]
           },
-          selectors = styleParser(options.style.content);
+          selectors = styleParser(options.style.content),
+          selectorsData = freqAnalyzer(
+            selectors,
+            options.files.map(file => file.content)
+          );
 
-    replacer(selectors, options);
+    replacer(selectorsData, options);
 
     expect(options.style.content).toEqual('.d {} .a {} .b:not(.c) {} #lol {}');
     expect(options.files[0].content).toEqual('get(".d"); get("a"); g(a); <div class="b c"></div>');

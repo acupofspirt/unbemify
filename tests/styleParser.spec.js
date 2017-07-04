@@ -1,4 +1,4 @@
-const styleParser = require('../lib/parsers/styleParser');
+const styleParser = require('../lib/parsers/styleParser')
 
 describe('Style parser', () => {
   const styles = `
@@ -39,7 +39,7 @@ describe('Style parser', () => {
     .some-class-5:not(.some-class-6) {
       color: indianred;
     }
-  `;
+  `
 
   it('should correctly parse all classes', () => {
     const selectors = styleParser(styles),
@@ -52,14 +52,14 @@ describe('Style parser', () => {
             'some-media-class-2',
             'some-class-5',
             'some-class-6'
-          ];
+          ]
 
-    expect(selectors).toEqual(expectedResult);
-  });
+    expect(selectors).toEqual(expectedResult)
+  })
 
   it('should correctly parse all unique classes', () => {
-    const selectors = styleParser(styles);
+    const selectors = styleParser(styles)
 
-    expect(selectors.length).toBe(8);
-  });
-});
+    expect(selectors.length).toBe(8)
+  })
+})

@@ -22,6 +22,7 @@
     "bem",
     "fast",
     "css",
+    "class name",
     "minificator"
   ],
   "author": {
@@ -31,12 +32,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.3",
-    "css-tree": "^1.0.0-alpha19"
+    "chalk": "^2.3.0",
+    "css-tree": "1.0.0-alpha.27"
   },
   "devDependencies": {
-    "cross-env": "^5.0.0",
-    "jest": "^20.0.4"
+    "cross-env": "^5.1.3",
+    "jest": "^22.1.4"
   },
   "maintainers": [
     {

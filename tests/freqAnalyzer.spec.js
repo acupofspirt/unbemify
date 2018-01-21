@@ -16,19 +16,18 @@ describe('Frequency analyzer', () => {
   it('should correctly analyze frequency of selectors', () => {
     expect(freqData).toEqual([
       {
-        name: 'lol', count: 3, identifier: '00'
+        name: 'lol', count: 3, newName: ''
       },
       {
-        name: 'kek', count: 2, identifier: '00'
+        name: 'kek', count: 2, newName: ''
       },
       {
-        name: 'clazz', count: 1, identifier: '00'
+        name: 'clazz', count: 1, newName: ''
       },
       {
-        name: 'topchek', count: 0, identifier: '00'
+        name: 'topchek', count: 0, newName: ''
       }
-    ]
-    )
+    ])
   })
 
   it('should correctly map data to returned dictionary', () => {
@@ -37,13 +36,13 @@ describe('Frequency analyzer', () => {
 
   it('should correctly analyze nonexistent selectors', () => {
     expect(freqData[3]).toEqual({
-      name: 'topchek', count: 0, identifier: '00'
+      name: 'topchek', count: 0, newName: ''
     })
   })
 
   it('should correctly analyze one selector in different files', () => {
     expect(freqData[0]).toEqual({
-      name: 'lol', count: 3, identifier: '00'
+      name: 'lol', count: 3, newName: ''
     })
   })
 

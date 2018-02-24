@@ -4,8 +4,9 @@
   "description": "Fast CSS class names minifier",
   "preferGlobal": true,
   "bin": {
-    "unbemify": "index.js"
+    "unbemify": "bin/unbemify.js"
   },
+  "main": "lib/unbemify.js",
   "scripts": {
     "test": "cross-env NODE_ENV=TEST jest",
     "test:cover": "cross-env NODE_ENV=TEST jest --coverage",

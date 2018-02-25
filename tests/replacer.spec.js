@@ -4,7 +4,7 @@ const replacer = require('../lib/replacer'),
 
 describe('CSS class replacer', () => {
   it('should correctly replace all classes', () => {
-    const options = {
+    const data = {
             style: {
               path: 'somepath.css',
               size: '',
@@ -18,16 +18,16 @@ describe('CSS class replacer', () => {
               }
             ]
           },
-          selectors = styleParser(options.style.content),
+          selectors = styleParser(data.style.content),
           selectorsData = freqAnalyzer(
             selectors,
-            options.files.map(file => file.content),
+            data,
             {unused: false}
           )
 
-    replacer(selectorsData, options)
+    replacer(selectorsData, data)
 
-    expect(options.style.content).toEqual('.f {} .c {} .d:not(.e) {} #lol {}')
-    expect(options.files[0].content).toEqual('get(".f"); get("c"); g(c); <div class="d e"></div>')
+    expect(data.style.content).toEqual('.f {} .c {} .d:not(.e) {} #lol {}')
+    expect(data.files[0].content).toEqual('get(".f"); get("c"); g(c); <div class="d e"></div>')
   })
 })

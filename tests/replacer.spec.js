@@ -21,7 +21,8 @@ describe('CSS class replacer', () => {
           selectors = styleParser(options.style.content),
           selectorsData = freqAnalyzer(
             selectors,
-            options.files.map(file => file.content)
+            options.files.map(file => file.content),
+            {unused: false}
           )
 
     replacer(selectorsData, options)

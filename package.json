@@ -10,7 +10,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=TEST jest",
     "test:cover": "cross-env NODE_ENV=TEST jest --coverage",
-    "debug": "cross-env NODE_ENV=DEBUG unbemify"
+    "perf": "node --allow-natives-syntax ./perf"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,8 @@
   },
   "devDependencies": {
     "cross-env": "^5.1.4",
-    "jest": "^22.4.2"
+    "jest": "^22.4.2",
+    "v8-natives": "^1.1.0"
   },
   "maintainers": [
     {

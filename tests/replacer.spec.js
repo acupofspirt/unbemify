@@ -30,4 +30,32 @@ describe('CSS class replacer', () => {
     expect(data.style.content).toEqual('.f {} .c {} .d:not(.e) {} #lol {}')
     expect(data.files[0].content).toEqual('get(".f"); get("c"); g(c); <div class="d e"></div>')
   })
+
+  it('should not replace tag selectors in style file', () => {
+    const data = {
+            style: {
+              path: 'somepath.css',
+              size: '',
+              content: '.div {} div {}'
+            },
+            files: [
+              {
+                path: 'somepath.js',
+                size: '',
+                content: 'fn(".div");'
+              }
+            ]
+          },
+          selectors = styleParser(data.style.content),
+          selectorsData = freqAnalyzer(
+            selectors,
+            data,
+            {unused: false}
+          )
+
+    replacer(selectorsData, data)
+
+    expect(data.style.content).toEqual('.c {} div {}')
+    expect(data.files[0].content).toEqual('fn(".c");')
+  })
 })

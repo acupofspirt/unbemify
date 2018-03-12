@@ -1,6 +1,6 @@
 {
   "name": "unbemify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Fast minifier for CSS class names.",
   "preferGlobal": true,
   "bin": {

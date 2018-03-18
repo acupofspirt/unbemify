@@ -58,4 +58,32 @@ describe('CSS class replacer', () => {
     expect(data.style.content).toEqual('.c {} div {}')
     expect(data.files[0].content).toEqual('fn(".c");')
   })
+
+  it('should replace only whole entries of word', () => {
+    const data = {
+            style: {
+              path: 'somepath.css',
+              size: '',
+              content: '.row {}'
+            },
+            files: [
+              {
+                path: 'somepath.js',
+                size: '',
+                content: 'fn(".row", "row-col3", "re-row"); throw; console.log("Throwed")'
+              }
+            ]
+          },
+          selectors = styleParser(data.style.content),
+          selectorsData = freqAnalyzer(
+            selectors,
+            data,
+            {unused: false}
+          )
+
+    replacer(selectorsData, data)
+
+    expect(data.style.content).toEqual('.c {}')
+    expect(data.files[0].content).toEqual('fn(".c", "row-col3", "re-row"); throw; console.log("Throwed")')
+  })
 })

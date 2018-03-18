@@ -15,7 +15,7 @@ describe('Frequency analyzer', () => {
         freqDataUnused = freqAnalyzer(selectors, data, {unused: true})
 
   it('should correctly analyze frequency of selectors', () => {
-    expect(freqData).toEqual([
+    expect(freqData).toMatchObject([
       {
         name: 'lol', count: 3, newName: ''
       },
@@ -29,7 +29,7 @@ describe('Frequency analyzer', () => {
   })
 
   it('should respect unused option', () => {
-    expect(freqDataUnused).toEqual([
+    expect(freqDataUnused).toMatchObject([
       {
         name: 'lol', count: 3, newName: ''
       },
@@ -50,13 +50,13 @@ describe('Frequency analyzer', () => {
   })
 
   it('should correctly analyze nonexistent selectors', () => {
-    expect(freqDataUnused[3]).toEqual({
+    expect(freqDataUnused[3]).toMatchObject({
       name: 'topchek', count: 0, newName: ''
     })
   })
 
   it('should correctly analyze one selector in different files', () => {
-    expect(freqData[0]).toEqual({
+    expect(freqData[0]).toMatchObject({
       name: 'lol', count: 3, newName: ''
     })
   })

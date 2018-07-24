@@ -7,7 +7,7 @@ describe('File path normalizer', () => {
   it('should transform relative path to absolute', () => {
     const normalizedPath = pathNormalizer('folder/style.css')
 
-    expect(path.isAbsolute(normalizedPath))
+    expect(path.isAbsolute(normalizedPath.fullPath))
       .toBe(true)
   })
 

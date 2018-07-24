@@ -16,7 +16,10 @@ describe('CSS class replacer', () => {
                 size: '',
                 content: 'get(".class-1"); get("class-2"); g(class-2); <div class="clazz-12 clazz-13"></div>'
               }
-            ]
+            ],
+            report: {
+              unusedSelectorsCount: 0
+            }
           },
           selectors = styleParser(data.style.content),
           selectorsData = freqAnalyzer(
@@ -44,7 +47,10 @@ describe('CSS class replacer', () => {
                 size: '',
                 content: 'fn(".div");'
               }
-            ]
+            ],
+            report: {
+              unusedSelectorsCount: 0
+            }
           },
           selectors = styleParser(data.style.content),
           selectorsData = freqAnalyzer(
@@ -72,7 +78,10 @@ describe('CSS class replacer', () => {
                 size: '',
                 content: 'fn(".row", "row-col3", "re-row"); throw; console.log("Throwed")'
               }
-            ]
+            ],
+            report: {
+              unusedSelectorsCount: 0
+            }
           },
           selectors = styleParser(data.style.content),
           selectorsData = freqAnalyzer(

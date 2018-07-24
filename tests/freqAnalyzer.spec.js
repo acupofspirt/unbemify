@@ -7,10 +7,15 @@ describe('Frequency analyzer', () => {
           'clazz',
           'topchek'
         ],
-        data = {files: [
-          {content: "document.querySelector('.lol');div.classList.toggle('lol');somePseudoJS('.clazz')"},
-          {content: "<div class='lol kek'><p class='kek'>some text</p></div>"}
-        ]},
+        data = {
+          files: [
+            {content: "document.querySelector('.lol');div.classList.toggle('lol');somePseudoJS('.clazz')"},
+            {content: "<div class='lol kek'><p class='kek'>some text</p></div>"}
+          ],
+          report: {
+            unusedSelectorsCount: 0
+          }
+        },
         freqData = freqAnalyzer(selectors, data, {unused: false, exclude: []}),
         freqDataUnused = freqAnalyzer(selectors, data, {unused: true, exclude: []})
 

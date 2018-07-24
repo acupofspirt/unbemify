@@ -22,7 +22,7 @@ describe('CSS class replacer', () => {
           selectorsData = freqAnalyzer(
             selectors,
             data,
-            {unused: false}
+            {unused: false, exclude: []}
           )
 
     replacer(selectorsData, data)
@@ -50,7 +50,7 @@ describe('CSS class replacer', () => {
           selectorsData = freqAnalyzer(
             selectors,
             data,
-            {unused: false}
+            {unused: false, exclude: []}
           )
 
     replacer(selectorsData, data)
@@ -78,7 +78,7 @@ describe('CSS class replacer', () => {
           selectorsData = freqAnalyzer(
             selectors,
             data,
-            {unused: false}
+            {unused: false, exclude: []}
           )
 
     replacer(selectorsData, data)

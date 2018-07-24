@@ -1,7 +1,7 @@
 const replacer = require('../lib/replacer'),
       freqAnalyzer = require('../lib/replacer/freqAnalyzer'),
       styleParser = require('../lib/parsers/styleParser'),
-      v8 = require('v8-natives'); 
+      v8 = require('v8-natives');
 
 function getData() {
   return {
@@ -20,12 +20,12 @@ function getData() {
   }
 }
 const data = getData(),
-      data1 = getData(),  
+      data1 = getData(),
       selectors = styleParser(data.style.content),
       selectorsData = freqAnalyzer(
         selectors,
         data,
-        {unused: false}
+        {unused: false, exclude: []}
       )
 
 replacer(selectorsData, data)

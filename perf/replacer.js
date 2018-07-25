@@ -16,7 +16,10 @@ function getData() {
         size: '',
         content: 'fn(".div");'
       }
-    ]
+    ],
+    report: {
+      unusedSelectorsCount: 0
+    }
   }
 }
 const data = getData(),

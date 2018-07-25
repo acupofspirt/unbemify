@@ -3,7 +3,7 @@ const modules = [
   'identifiers'
 ]
 
-function invokeModule(name) {
+function invokeModule (name) {
   require(`./${name}.js`)
 }
 

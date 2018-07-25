@@ -1,9 +1,9 @@
 const replacer = require('../lib/replacer'),
       freqAnalyzer = require('../lib/replacer/freqAnalyzer'),
       styleParser = require('../lib/parsers/styleParser'),
-      v8 = require('v8-natives');
+      v8 = require('v8-natives')
 
-function getData() {
+function getData () {
   return {
     style: {
       path: 'somepath.css',
@@ -22,6 +22,7 @@ function getData() {
     }
   }
 }
+
 const data = getData(),
       data1 = getData(),
       selectors = styleParser(data.style.content),

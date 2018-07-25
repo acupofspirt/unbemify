@@ -30,8 +30,8 @@ describe('CSS class replacer', () => {
 
     replacer(selectorsData, data)
 
-    expect(data.style.content).toEqual('.f {} .c {} .d:not(.e) {} #lol {}')
-    expect(data.files[0].content).toEqual('get(".f"); get("c"); g(c); <div class="d e"></div>')
+    expect(data.style.content).toEqual('.d {} .a {} .b:not(.c) {} #lol {}')
+    expect(data.files[0].content).toEqual('get(".d"); get("a"); g(a); <div class="b c"></div>')
   })
 
   it('should not replace tag selectors in style file', () => {
@@ -61,8 +61,8 @@ describe('CSS class replacer', () => {
 
     replacer(selectorsData, data)
 
-    expect(data.style.content).toEqual('.c {} div {}')
-    expect(data.files[0].content).toEqual('fn(".c");')
+    expect(data.style.content).toEqual('.a {} div {}')
+    expect(data.files[0].content).toEqual('fn(".a");')
   })
 
   it('should replace only whole entries of word', () => {
@@ -92,7 +92,7 @@ describe('CSS class replacer', () => {
 
     replacer(selectorsData, data)
 
-    expect(data.style.content).toEqual('.c {}')
-    expect(data.files[0].content).toEqual('fn(".c", "row-col3", "re-row"); throw; console.log("Throwed")')
+    expect(data.style.content).toEqual('.a {}')
+    expect(data.files[0].content).toEqual('fn(".a", "row-col3", "re-row"); throw; console.log("Throwed")')
   })
 })
